@@ -1,0 +1,85 @@
+.project {
+    grid-column: 2/14;
+    padding: 6rem;
+
+    &-box__wrapper {
+        display: grid;grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 4rem;
+        color: $black;
+        margin-top: 6rem;
+    }
+
+    &-box {
+        padding: 2rem;
+        height: 35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+
+        &:hover {
+            border: solid 2px $white;
+            color: $white;
+        }
+    }
+    .project-box:nth-child(1) {
+        background: linear-gradient(to bottom, #F3CBAB, #FEEDCA);
+    }
+    .project-box:nth-child(2) {
+        background: linear-gradient(to bottom, #B1E5F9, #F4D2FE);
+    }
+    .project-box:nth-child(3) {
+        background: linear-gradient(to bottom, #DBB4F3, #EFB7D7);
+    }
+    .project-box:nth-child(4) {
+        background: linear-gradient(to bottom, #EFA971, #E4CAFE);
+        .project-box__link {
+            width: min-content;
+        }
+    }
+    .project-box:nth-child(5) {
+        background: linear-gradient(to right, #B1E5F9, #F4D2FE);
+        .project-box__link {
+            width: min-content;
+        }
+    }
+
+    &-box__link {
+        align-self: flex-end;
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media only screen and (max-width: 56.25em) { // tab-port
+            width: 30%;
+        }
+
+    }
+    &-box__content {
+        align-self: center;
+    }
+}
+
+// hover state
+.project-box:nth-child(1), .project-box:nth-child(2), .project-box:nth-child(3), .project-box:nth-child(4), .project-box:nth-child(5) {
+    background: linear-gradient(to bottom, #F3CBAB, #FEEDCA);
+    &:after {
+        content: '';
+        position: absolute;
+        width: 103%;
+        height: 101%;
+        top: 1rem;
+        right: 0;
+        z-index: -1;
+    }
+    &:hover {
+        background: none;
+        background-color: $black;
+    }
+    &:hover  img {
+        filter: invert(1);
+    }
+    &:hover:after {
+        outline: 2px solid $white;
+    }
+}

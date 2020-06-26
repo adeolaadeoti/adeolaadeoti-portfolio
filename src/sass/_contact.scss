@@ -1,0 +1,24 @@
+.contact {
+    grid-column: 2/14;
+    padding: 6rem;
+
+    &-box__wrapper {
+        margin-top: 8rem;
+        display: grid;grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+        grid-gap: 4rem;
+    }
+
+    &-box {
+        a {
+            font-size: 2.75rem;
+            text-decoration: none;
+            color: $white;
+            font-family: $tertiary-font;
+            transition: color .2s ease-in-out;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,250 @@
+// nav
+.nav-container {
+    position: absolute;
+    padding: 4rem;
+    top: 0;
+    left: 0;
+    .nav-icon {
+        background-color: #000;
+        position: absolute;
+        right: 4rem;
+        top: 2.5rem;
+        z-index: 10;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        cursor: pointer;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .bar1, .bar2, .bar3 {
+            width: 20px;
+            height: 2px;
+            margin: 4px 0;
+            transition: 0.4s;
+            background-color: $white;
+            border-radius: 1rem;
+        }
+        .bar2 {
+            width: 30px;
+            transform-origin: right;
+        }
+    }
+
+    .nav-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        .box-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            .box {
+                background-color: $primary-color;
+                width: calc(100vw / 4);
+                height: 0vh;
+            }
+        }
+        .mobile-logo {
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            z-index: 2;
+            filter: brightness(1%);
+            opacity: 0;
+        }
+        &__content {
+            opacity: 0;
+            visibility: hidden;
+            width: 95vw;
+            position: absolute;
+            top: 15rem;
+            left: 4rem;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            grid-gap: 4rem;
+            padding: 4rem;
+            color: $black;
+
+            &--box {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-height: 25rem;
+                .social-links {
+                    display: flex;
+                    flex-direction: column;
+                    &--box {
+                        display: flex;
+                        align-items: center;
+                        img {
+                            margin-right: 2rem;
+                            height: 1.7rem;
+                            filter: brightness(1%);
+                        }
+                    }
+                    &--box:nth-child(2) {
+                        margin-top: 1rem;
+                    }
+                }
+                .resume {
+                    font-size: 5rem;
+                    text-decoration: none;
+                    color: $black;
+                    font-family: $tertiary-font;
+                    letter-spacing: -2px;
+                    align-self: flex-start;
+                    transition: all .2s ease-in-out;
+                        &:hover {
+                            letter-spacing: 3px;
+                        }
+                }
+                .list {
+                    justify-self: flex-start;
+                    &__item {
+                        list-style: none;
+                        &:not(:last-child) {
+                            margin-bottom: 3.5rem;
+                        }
+                        a {
+                            text-transform: uppercase;
+                            font-size: 3rem;
+                            text-decoration: none;
+                            color: $black;
+                            font-family: $tertiary-font;
+                            letter-spacing: -1px;
+                            transition: all .2s ease-in-out;
+                            &:hover {
+                                letter-spacing: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-sub {
+        position: absolute;
+    }
+}
+
+.header {
+    position: relative;
+    overflow: hidden;
+    min-height: 80rem;  
+    @media only screen and (max-width: 37.5em) { // phone
+        min-height: 70rem;    
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        background: url('../img/svg/home-bg.svg') 100% 0 no-repeat;
+    }
+        
+        @media only screen and (max-width: 56.25em) { // tab-land
+            &:after {
+                transform: rotate(90deg);
+                background-position: 50% 0%;
+                left: 0;
+                bottom: 0;
+
+            }
+        }
+    .hero {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-70%);
+        @media only screen and (max-width: 56.25em) { // tab-land
+            top: 55%;
+        }
+    }
+}
+
+
+
+// text video
+.text-container {
+    width: 25rem;
+    position: relative;
+    overflow: hidden;
+    height: 10rem;
+    margin: 1rem 0 1rem -2rem;
+
+    video {
+        position: absolute;
+        top: 0;
+        width: 24rem;
+        height: 10rem;
+    }
+
+    svg {
+        position: absolute;
+        top: -1rem;
+        left: -.75rem;
+        width: 27rem;
+    }
+
+    span {
+        font-size: 8rem;
+        color: rgba(255, 255, 255, 0);
+        text-transform: lowercase;
+        font-family: $secondary-font;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+  }
+  
+// svg {
+//     position: absolute;
+//     right: 0;
+//     top: -38%;
+// }
+  
+// svg rect {
+//     fill: white;
+//     -webkit-mask: url('#mask');
+//             mask: url('#mask');
+// }
+  
+// svg text {
+//     font-size: 10rem;
+//     fill: black;
+//     text-transform: lowercase;
+//     letter-spacing: -5px;
+//     font-family: $secondary-font;
+// }
+  
+// svg > rect {
+//     fill: black;
+//     width: 100%;
+// }
+
+// animation 
+.nav-anim .bar1 {
+    transform: rotate(-45deg) translate(-6px, 7px);
+}
+  
+.nav-anim .bar2 {
+    transform: translateX(200%);
+    opacity: 0;
+}
+  
+.nav-anim .bar3 {
+    transform: rotate(45deg) translate(-7px, -8px);
+}

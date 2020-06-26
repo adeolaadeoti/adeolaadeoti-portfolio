@@ -1,0 +1,20 @@
+{
+  "name": "raba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rm -rf ./development && rm -rf ./.cache && parcel src/index.html --out-dir development -p 3000",
+    "build": "parcel build src/index.html --out-dir dist --public-url ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/runtime-corejs3": "^7.10.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.8"
+  }
+}

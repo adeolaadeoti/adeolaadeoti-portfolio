@@ -1,0 +1,34 @@
+.web {
+    grid-column: 2/14;
+    padding: 6rem;
+
+    &-box__wrapper {
+        display: grid;grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 4rem;
+        margin-top: 6rem;
+    }
+
+    &-box {
+        padding: 2rem 2rem .5rem 2rem;
+        border: 1px solid $secondary-color;
+        border-bottom: 4px solid $primary-color;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            font-size: 2rem;
+            text-transform: capitalize;
+            text-decoration: none;
+            color: $secondary-color;
+            font-family: $tertiary-font;
+            transition: color .3s ease-in-out ;
+            img {
+                align-self: flex-end;
+                height: 2rem;
+            }
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}

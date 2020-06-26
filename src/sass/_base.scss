@@ -1,0 +1,296 @@
+@font-face {
+    font-family: 'Calibre-SemiBold';
+    src:url('../font/Calibre-SemiBold.woff') format('woff'),
+        url('../font/Calibre-SemiBold.ttf') format('truetype'),
+        url('../font/Calibre-Semibold.svg#Calibre-Semibold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'Calibre-Medium';
+    src:url('../font/Calibre-Medium.woff') format('woff'),
+        url('../font/Calibre-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calibre-Regular';
+    src:url('../font/Calibre-Regular.woff') format('woff'),
+        url('../font/Calibre-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*--------------------------
+    variables
+---------------------------*/
+
+//fonts
+$primary-font: 'Calibre-Regular', sans-serif;
+$secondary-font: 'Calibre-SemiBold', sans-serif;
+$tertiary-font: 'Calibre-Medium', sans-serif;
+
+//colors
+$primary-color: #09F755;
+$secondary-color: #797575;
+$white: #FFFFFF;
+$black: #000000;
+
+
+/*--------------------------
+    base settings
+---------------------------*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    // border: solid 2px red;
+}
+
+html {
+    font-size: 62.5%; // 10px
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+    
+    @media only screen and (max-width: 62.5em) { // tab-land
+        font-size: 56.25%;
+    }
+    
+    @media only screen and (max-width: 56.25em) { // tab-port
+        font-size: 54%; 
+    }
+
+    @media only screen and (max-width: 37.5em) { // phone
+        font-size: 51%; 
+    }
+    
+    @media only screen and (min-width: 112.5em) { // big desktop
+        font-size: 75%; // 1rem = 12px, 12/16 = 75
+    }
+    
+}
+
+body {
+    font-family: $primary-font;
+    font-size: 1.6rem;
+    background-color: $black;
+    color: $white;
+    overflow-x: hidden;
+    cursor: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @media only screen and (min-width: 20em) { // big desktop
+        overflow-x: scroll;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(min-content, 10rem)) 1fr;
+}
+
+.noScroll {
+    overflow-y: hidden;
+}
+
+.smooth-scroll-wrapper {
+    position: relative;
+    width: 100vw;
+}
+
+
+section {
+    transition: transform 0.25s;
+    will-change: transform;
+}
+
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $black;
+    z-index: 20;
+
+    #logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #logo path:nth-child(1) {
+        stroke-width: 1;
+        stroke-dasharray: 393.5;
+        stroke-dashoffset: 393.5;
+        animation: line-anim 2s ease forwards;
+    }
+    #logo path:nth-child(2) {
+        stroke-width: 1;
+        stroke-dasharray: 430;
+        stroke-dashoffset: 430;
+        animation: line-anim 2s ease forwards .3s;
+    }
+    #logo path:nth-child(3) {
+        stroke-width: 1;
+        stroke-dasharray: 413;
+        stroke-dashoffset: 413;
+        animation: line-anim 2s ease forwards .6s;
+    }
+    #logo path:nth-child(4) {
+        stroke-width: 1;
+        stroke-dasharray: 290;
+        stroke-dashoffset: 290;
+        animation: line-anim 2s ease forwards .9s;
+    }
+    #logo path:nth-child(5) {
+        stroke-width: 1;
+        stroke-dasharray: 187;
+        stroke-dashoffset: 187;
+        animation: line-anim 2s ease forwards 1.2s;
+    }
+    #logo path:nth-child(6) {
+        stroke-width: 1;
+        stroke-dasharray: 393;
+        stroke-dashoffset: 393;
+        animation: line-anim 2s ease forwards 1.5s;
+    }
+
+    svg {
+        animation: fill .6s ease-in forwards 3s;
+    }
+}
+
+@keyframes line-anim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fill {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: $primary-color;
+    }
+}
+
+
+// cursor
+
+.cursor {
+    width: 2rem;
+    height: 2rem;
+    border: 2.5px solid $white;
+    border-radius: 50%;
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transform-origin: 100% 100%;
+    transition: all .3s ease;
+    transition-property: background, transform;
+
+    @media only screen and (max-width: 62.5em) { // tab-land
+        opacity: 0;
+    }
+}
+/*--------------------------
+    typography
+---------------------------*/
+.heading-2 {
+    font-size: 4rem;
+    letter-spacing: -1px;
+    text-transform: capitalize;
+}
+
+.heading-3 {
+    font-size: 4rem;
+    text-transform: capitalize;
+    letter-spacing: -.5px;
+    line-height: 4rem;
+    font-family: $tertiary-font;
+}
+
+.heading-4 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.heading-5 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.paragraph {
+    font-size: 1.5rem;
+    color: $secondary-color;
+}
+
+
+
+/*--------------------------
+    button
+---------------------------*/
+.cta {
+    background-color: $primary-color;
+    padding: 1.5rem 4rem;
+    text-decoration: none;
+    color: $black;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: $secondary-font;
+    letter-spacing: 3px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: transparent;
+        border: 1.5px solid $white;
+        color: $white;
+    }
+}
+
+
+/*--------------------------
+    utilities
+---------------------------*/
+.pri-color {
+    color: $primary-color;
+}
+.sec-color {
+    color: $secondary-color;
+}
+.mb-l {
+    margin-bottom: 5rem;
+}
+.mb-m {
+    margin-bottom: 3rem;
+}
+.mb-s {
+    margin-bottom: 1.3rem;
+}
+.mt-s {
+    margin-top: 1rem;
+}
+
