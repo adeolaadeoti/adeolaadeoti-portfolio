@@ -17,10 +17,10 @@ socialLinks.forEach((link) => {
 
 // custom cursor
 const cursor = document.querySelector(".cursor");
-window.onmousemove = (e) => {
+window.onmousemove = ({ pageY, pageX }) => {
   cursor.setAttribute(
     "style",
-    `top: ${e.pageY}px; left: ${e.pageX}px; z-index: 2;`,
+    `top: ${pageY}px; left: ${pageX}px; z-index: 2;`,
   );
 };
 
@@ -45,11 +45,11 @@ tl.to(".nav-main__content", {
 const navIcon = document.querySelector(".nav-icon");
 navIcon.addEventListener("click", () => {
   if (tl.reversed()) {
-    this.classList.add("nav-anim");
+    navIcon.classList.add("nav-anim");
     tl.play();
     document.body.classList.add("noScroll");
   } else {
-    this.classList.remove("nav-anim");
+    navIcon.classList.remove("nav-anim");
     tl.reverse();
     document.body.classList.remove("noScroll");
   }
